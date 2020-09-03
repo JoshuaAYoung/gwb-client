@@ -1,11 +1,20 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from 'react';
 import './App.css';
 import ErrorBoundary from './ErrorBoundary';
-import styles from './app.module';
+import ContactNav from './components/ContactNav/ContactNav';
+import MainNav from './components/MainNav/MainNav';
 
-export default class App extends Component {
-  render() {
-    return <h2 className={styles.red}>This is our React application!</h2>;
-  }
+export default function App() {
+  return (
+    <div className="app">
+      <header className="main-header" role="banner">
+        <ErrorBoundary>
+          <ContactNav />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <MainNav />
+        </ErrorBoundary>
+      </header>
+    </div>
+  );
 }
